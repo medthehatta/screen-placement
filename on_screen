@@ -1,0 +1,5 @@
+#!/bin/bash
+prefix="$(dirname -- "$(readlink -f $0)")"
+
+
+/usr/bin/env perl -I"$prefix" "$prefix/on_screen.pl"
