@@ -369,7 +369,8 @@ sub screen_getter_by_index {
         my $spec = shift;
         chomp $spec;
 
-        if ($spec =~ /^\d+ \d+$/) {
+        if ($spec =~ /^\d+,\d+$/) {
+            $spec =~ s/,/ /;
             return $rd2->{$spec};
 
         } elsif ($spec =~ /^\d+$/) {
