@@ -397,7 +397,6 @@ sub _screen_spec_from_tuple {
 
 sub parse_screen_spec {
     my $spec = shift;
-    chomp $spec;
 
     my ($screen, $width, $height, $pos) =
         $spec =~ /^screen((?:\d+)(?:,\d+)?) (\d+)x(\d+) ((?:[\w\d_]+)|(?:\d+,\d+))$/;

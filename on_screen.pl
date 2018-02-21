@@ -30,7 +30,9 @@ my @vars = qw(height width left top);
 
 
 for (<>) {
-    my ($height, $width, $left, $top) = @{produce_result($_)}{@vars};
+    chomp;
+    my $result = produce_result($_);
+    my ($height, $width, $left, $top) = @$result{@vars};
     print(
         join(' ',
             "-x $left",
