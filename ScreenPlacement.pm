@@ -291,16 +291,16 @@ sub indexed_rectangles {
     my @rectangles = @_;
 
     # Group the rectangles into equivalent vertical or horizontal coordinates
-    my $by_v = assign_group_by(\&_middle, @rectangles);
-    my $by_h = assign_group_by(\&_center, @rectangles);
+    my $by_v = assign_group_by(\&_top, @rectangles);
+    my $by_h = assign_group_by(\&_left, @rectangles);
 
     # Sort the vertical and horizontal values of the equivalence classes and
     # assign them discrete indices
     my @v_values = uniq(values %$by_v);
     my @h_values = uniq(values %$by_h);
 
-    my $v_indices = index_ reverse sort @v_values;
-    my $h_indices = index_ reverse sort @h_values;
+    my $v_indices = index_ sort @v_values;
+    my $h_indices = index_ sort @h_values;
 
     my $idx_2d = {
         map {
